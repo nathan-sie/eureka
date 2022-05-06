@@ -5,6 +5,15 @@ public class Goods {
     private String name;
     private int f_id;
     private double price;
+    private int num;
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
 
     private String instanceId = "Provider II";
 

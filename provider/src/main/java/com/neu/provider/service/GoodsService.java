@@ -19,4 +19,10 @@ public class GoodsService {
     public List<Goods> findByName(String name){
         return dao.findByName(name);
     }
+
+    public List<Goods> findById(int id){return  dao.findById(id);}
+
+    public List<Goods> findByF_id(int f_id){return  dao.findByF_id(f_id);}
+
+    public List<Goods> findByPrice(double price){return  dao.findByPrice(price);}
 }

@@ -31,6 +31,31 @@ public class GoodsController {
             throw new Exception();
         return list;
     }
+
+    @RequestMapping("/findById/{id}")
+    public List<Goods> findById(@PathVariable int id) throws Exception {
+        List<Goods> list =  service.findById(id);
+        if(list == null || list.size() == 0)
+            throw new Exception();
+        return list;
+    }
+
+    @RequestMapping("/findByF_id/{f_id}")
+    public List<Goods> findByF_Id(@PathVariable int f_id) throws Exception {
+        List<Goods> list =  service.findByF_id(f_id);
+        if(list == null || list.size() == 0)
+            throw new Exception();
+        return list;
+    }
+
+    @RequestMapping("/findByPrice/{price}")
+    public List<Goods> findByPrice(@PathVariable double price) throws Exception {
+        List<Goods> list =  service.findByPrice(price);
+        if(list == null || list.size() == 0)
+            throw new Exception();
+        return list;
+    }
+
     public List<Goods> fallback(@PathVariable("name") String name){
         ArrayList<Goods> list = new ArrayList<>();
         Goods Goods = new Goods();
