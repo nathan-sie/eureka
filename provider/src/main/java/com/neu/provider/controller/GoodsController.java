@@ -24,7 +24,7 @@ public class GoodsController {
         return service.findAll();
     }
 
-    @HystrixCommand(fallbackMethod = "fallback")
+    @HystrixCommand(fallbackMethod = "fallbackN")
     @RequestMapping("/findByName/{name}")
     public List<Goods> findByName(@PathVariable String name) throws Exception {
         List<Goods> list =  service.findByName(name);
@@ -33,6 +33,7 @@ public class GoodsController {
         return list;
     }
 
+    @HystrixCommand(fallbackMethod = "fallbackI")
     @RequestMapping("/findById/{id}")
     public List<Goods> findById(@PathVariable int id) throws Exception {
         List<Goods> list =  service.findById(id);
@@ -41,6 +42,7 @@ public class GoodsController {
         return list;
     }
 
+    @HystrixCommand(fallbackMethod = "fallbackF")
     @RequestMapping("/findByF_id/{f_id}")
     public List<Goods> findByF_Id(@PathVariable int f_id) throws Exception {
         List<Goods> list =  service.findByF_id(f_id);
@@ -49,6 +51,7 @@ public class GoodsController {
         return list;
     }
 
+    @HystrixCommand(fallbackMethod = "fallbackP")
     @RequestMapping("/findByPrice/{price}")
     public List<Goods> findByPrice(@PathVariable double price) throws Exception {
         List<Goods> list =  service.findByPrice(price);
@@ -100,10 +103,38 @@ public class GoodsController {
     }
 
 
-    public List<Goods> fallback(@PathVariable("name") String name){
+    public List<Goods> fallbackN(@PathVariable("name") String name){
         ArrayList<Goods> list = new ArrayList<>();
         Goods Goods = new Goods();
-        Goods.setName("Not Found!");
+        Goods.setId(0);
+        Goods.setName("Name Not Found!");
+        list.add(Goods);
+        return list;
+    }
+
+    public List<Goods> fallbackI(@PathVariable("id") int id){
+        ArrayList<Goods> list = new ArrayList<>();
+        Goods Goods = new Goods();
+        Goods.setId(0);
+        Goods.setName("Id Not Found!");
+        list.add(Goods);
+        return list;
+    }
+
+    public List<Goods> fallbackF(@PathVariable("f_id") int f_id){
+        ArrayList<Goods> list = new ArrayList<>();
+        Goods Goods = new Goods();
+        Goods.setF_id(0);
+        Goods.setName("Factory Id Not Found!");
+        list.add(Goods);
+        return list;
+    }
+
+    public List<Goods> fallbackP(@PathVariable("price") double price){
+        ArrayList<Goods> list = new ArrayList<>();
+        Goods Goods = new Goods();
+        Goods.setPrice(0);
+        Goods.setName("Price Not Found!");
         list.add(Goods);
         return list;
     }
