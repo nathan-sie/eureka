@@ -138,4 +138,13 @@ public class GoodsController {
         list.add(Goods);
         return list;
     }
+
+    public List<Goods> fallbackD(@PathVariable("f_id") int f_id,@PathVariable("price")double price){
+        ArrayList<Goods> list = new ArrayList<>();
+        Goods Goods = new Goods();
+        Goods.setPrice(0);
+        Goods.setName("Not Found!");
+        list.add(Goods);
+        return list;
+    }
 }

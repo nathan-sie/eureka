@@ -24,10 +24,10 @@ zuul:
 
   # 增加前缀以后，只能加上前缀才能访问到微服务
   prefix: /neu
-#
-##  AccessTokenFilter:
-##    pre:
-##      disable: true
-##  AccessTokenFilter1:
-##    pre:
-##      disable: true
+
+#  AccessTokenFilter:
+#    pre:
+#      disable: true
+#  AccessTokenFilter1:
+#    pre:
+#      disable: true
